@@ -396,7 +396,7 @@ const Index = () => {
               <span className="font-semibold">Юридические услуги</span>
             </div>
             <div className="text-center text-white/80 text-sm">
-              © 2024 Все права защищены
+              © 2026 Все права защищены
             </div>
           </div>
         </div>
