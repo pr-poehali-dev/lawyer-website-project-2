@@ -77,23 +77,7 @@ const Index = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      name: "Анна Петрова",
-      text: "Профессиональный подход к делу. Удалось выиграть сложный спор о наследстве. Рекомендую!",
-      rating: 5,
-    },
-    {
-      name: "Михаил Сидоров",
-      text: "Отличный специалист! Помог взыскать долг быстро и эффективно. Все вопросы решались оперативно.",
-      rating: 5,
-    },
-    {
-      name: "Елена Иванова",
-      text: "Благодарна за помощь в споре по ДТП. Компетентный юрист, всегда на связи. Очень довольна результатом.",
-      rating: 5,
-    },
-  ];
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -119,8 +103,8 @@ const Index = () => {
             <a href="#prices" className="text-foreground hover:text-accent transition-colors">
               Цены
             </a>
-            <a href="#reviews" className="text-foreground hover:text-accent transition-colors">
-              Отзывы
+            <a href="#review" className="text-foreground hover:text-accent transition-colors">
+              Оставить отзыв
             </a>
             <a href="#contact" className="text-foreground hover:text-accent transition-colors">
               Контакты
@@ -247,26 +231,66 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="reviews" className="py-20">
+      <section id="review" className="py-20 bg-secondary/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Отзывы клиентов</h2>
-            <p className="text-muted-foreground text-lg">Что говорят о нашей работе</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Icon key={i} name="Star" size={20} className="text-accent fill-accent" />
-                    ))}
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Оставить отзыв</h2>
+              <p className="text-muted-foreground text-lg">
+                Поделитесь своим мнением о нашей работе
+              </p>
+            </div>
+            <Card className="bg-white">
+              <CardContent className="pt-6">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2 text-foreground">
+                      Ваше имя
+                    </label>
+                    <Input
+                      placeholder="Иван Иванов"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                      className="border-border"
+                    />
                   </div>
-                  <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
-                  <p className="font-semibold text-primary">{testimonial.name}</p>
-                </CardContent>
-              </Card>
-            ))}
+                  <div>
+                    <label className="block text-sm font-semibold mb-2 text-foreground">
+                      Email
+                    </label>
+                    <Input
+                      type="email"
+                      placeholder="ivan@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
+                      className="border-border"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold mb-2 text-foreground">
+                      Ваш отзыв
+                    </label>
+                    <Textarea
+                      placeholder="Расскажите о вашем опыте работы с нами..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      required
+                      rows={5}
+                      className="border-border"
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full bg-accent hover:bg-accent/90 text-primary font-semibold"
+                    size="lg"
+                  >
+                    Отправить отзыв
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
