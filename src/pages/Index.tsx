@@ -126,9 +126,11 @@ const Index = () => {
               Контакты
             </a>
           </nav>
-          <Button className="bg-accent hover:bg-accent/90 text-primary">
-            <Icon name="Phone" size={16} className="mr-2" />
-            Связаться
+          <Button asChild className="bg-accent hover:bg-accent/90 text-primary">
+            <a href="https://t.me/lawyerEKT" target="_blank" rel="noopener noreferrer">
+              <Icon name="Send" size={16} className="mr-2" />
+              Написать в Telegram
+            </a>
           </Button>
         </div>
       </header>
@@ -342,19 +344,21 @@ const Index = () => {
                 </form>
               </CardContent>
             </Card>
-            <div className="mt-8 text-center space-y-2">
-              <div className="flex items-center justify-center gap-2">
-                <Icon name="Phone" size={20} />
-                <span>+7 (999) 123-45-67</span>
-              </div>
+            <div className="mt-8 text-center space-y-4">
               <div className="flex items-center justify-center gap-2">
                 <Icon name="Mail" size={20} />
-                <span>info@lawyer.ru</span>
+                <span>lawyerekt@mail.ru</span>
               </div>
               <div className="flex items-center justify-center gap-2">
                 <Icon name="MapPin" size={20} />
-                <span>г. Москва, ул. Примерная, д. 1</span>
+                <span>г. Севастополь</span>
               </div>
+              <Button asChild className="bg-accent hover:bg-accent/90 text-primary font-semibold">
+                <a href="https://t.me/lawyerEKT" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Send" size={20} className="mr-2" />
+                  Написать в Telegram
+                </a>
+              </Button>
             </div>
           </div>
         </div>
